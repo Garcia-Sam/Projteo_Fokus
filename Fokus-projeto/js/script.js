@@ -65,13 +65,26 @@ function alterarContexto(contexto) {
     }
 }
 const contagemRegressiva = () =>{
-    //iniciar()
+    if (tempoDecorridoEmSegundos <= 0) {
+        zerar()
+        alert('Tempo Finalizado')
+        return
+    }
     tempoDecorridoEmSegundos -= 1
     console.log('Temporizador:' + tempoDecorridoEmSegundos)
 }
 
-startPauseBt.addEventListener('click', contagemRegressiva)
+startPauseBt.addEventListener('click', iniciarOuPausar)
 
-function iniciar(){
+function iniciarOuPausar(){
+    if(intervaloId){
+        zerar()
+        return 
+    }
     intervaloId = setInterval(contagemRegressiva, 1000) //sempre recebe o valor em ms
+}
+
+function zerar (){
+    clearInterval(intervaloId)
+    intervaloId = null
 }
