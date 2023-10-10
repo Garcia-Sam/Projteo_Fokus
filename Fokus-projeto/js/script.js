@@ -70,8 +70,8 @@ function alterarContexto(contexto) {
 }
 const contagemRegressiva = () =>{
     if (tempoDecorridoEmSegundos <= 0) {
-        zerar()
         beep.play()
+        zerar()
         return
     }
     tempoDecorridoEmSegundos -= 1
