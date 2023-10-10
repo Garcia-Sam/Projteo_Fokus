@@ -5,6 +5,7 @@ const longoBT = document.querySelector(".app__card-button--longo")
 const banner = document.querySelector(".app__image")
 const titulo = document.querySelector(".app__title")
 const botoes = document.querySelectorAll(".app__card-button")
+const iniciarOuPausarIcon = document.querySelector(".app__card-primary-butto-icon")
 const startPauseBt = document.querySelector("#start-pause")
 const musicaFocoInput = document.querySelector("#alternar-musica")
 const iniciarOuPausarBt = document.querySelector("#start-pause span")
@@ -90,10 +91,12 @@ function iniciarOuPausar(){
     play.play()
     intervaloId = setInterval(contagemRegressiva, 1000) //sempre recebe o valor em ms
     iniciarOuPausarBt.textContent = "Pausar"
+    iniciarOuPausarIcon.setAttribute('src', `./imagens/pause.png`)
 }
 
 function zerar (){
     clearInterval(intervaloId)
     iniciarOuPausarBt.textContent = "Começar"
+    iniciarOuPausarIcon.setAttribute('src', `./imagens/play_arrow.png`)
     intervaloId = null
 }
