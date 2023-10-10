@@ -9,12 +9,13 @@ const iniciarOuPausarIcon = document.querySelector(".app__card-primary-butto-ico
 const startPauseBt = document.querySelector("#start-pause")
 const musicaFocoInput = document.querySelector("#alternar-musica")
 const iniciarOuPausarBt = document.querySelector("#start-pause span")
-const  musica = new Audio("./sons/luna-rise-part-one.mp3") //readFile()
+const tempoNaTela = document.querySelector("#timer")
+const musica = new Audio("./sons/luna-rise-part-one.mp3") //readFile()
 const play = new Audio ("./sons/play.wav")
 const pause = new Audio ("./sons/pause.mp3")
 const beep = new Audio ("./sons/beep.mp3")
 
-let tempoDecorridoEmSegundos = 5
+let tempoDecorridoEmSegundos = 1500
 let intervaloId = null
 
 musica.loop = true
@@ -69,6 +70,7 @@ function alterarContexto(contexto) {
             break;
     }
 }
+
 const contagemRegressiva = () =>{
     if (tempoDecorridoEmSegundos <= 0) {
         //beep.play()
@@ -77,12 +79,12 @@ const contagemRegressiva = () =>{
         return
     }
     tempoDecorridoEmSegundos -= 1
-    console.log('Temporizador:' + tempoDecorridoEmSegundos)
+    mostrarTempo()
 }
 
 startPauseBt.addEventListener('click', iniciarOuPausar)
 
-function iniciarOuPausar(){
+function iniciarOuPausar (){
     if(intervaloId){
         pause.play()
         zerar()
@@ -100,3 +102,10 @@ function zerar (){
     iniciarOuPausarIcon.setAttribute('src', `./imagens/play_arrow.png`)
     intervaloId = null
 }
+
+function mostrarTempo() {
+    const tempo = tempoDecorridoEmSegundos
+    tempoNaTela.innerHTML = `${tempo}`
+}
+
+mostrarTempo()
