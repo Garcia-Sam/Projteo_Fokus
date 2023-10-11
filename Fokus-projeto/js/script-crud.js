@@ -34,3 +34,7 @@ function createTask (tarefa) {
 
     return li
 }
+tarefas.forEach(task => { 
+    const taskItem = createTask(task)
+    taskListContainer.appendChild(taskItem)
+})
