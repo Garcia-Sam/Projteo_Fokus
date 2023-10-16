@@ -6,8 +6,10 @@ const formLabel = document.querySelector('.app__form-label')
 const textArea = document.querySelector(".app__form-textarea")
 const cancelFormTaskBtn = document.querySelector('.app__form-footer__button--cancel')
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel')
+
 const limparForm = () =>{
     textArea.value = ''
+    formTask.classList.add("hidden")
 }
 
 
@@ -56,6 +58,8 @@ cancelFormTaskBtn.addEventListener('click', () => {
     formTask.classList.add('hidden')
 })
 
+btnCancelar.addEventListener("click", limparForm)
+
 formTask.addEventListener("submit", (evento) =>{
     evento.preventDefault()
     const task = {
@@ -65,4 +69,6 @@ formTask.addEventListener("submit", (evento) =>{
     tarefas.push(task)
     const taskItem = createTask(task)
     taskListContainer.appendChild(taskItem)
+    
+    limparForm()
 })
