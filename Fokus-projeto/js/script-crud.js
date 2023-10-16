@@ -32,22 +32,23 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
 let tarefaSelecionada = null
 let itemTarefaSelecionada = null
 
-const selecionaTarefa = (tarefa, elemento) =>{
-    document.querySelectorAll(".app__section-task-list-item-active").forEach(function (button) {
-        button.classList.remove("app__section-task-list-item-active")
-    })
+const selecionaTarefa = (tarefa, elemento) => {
 
-    if (tarefasSelecionadas == tarefa){
-        taskActiveDescription.textContent = null
-        itemTarefaSelecionada = null
-        tarefaSelecionada = null
-        return
-    }
+document.querySelectorAll('.app__section-task-list-item-active').forEach(function (button) {
+    button.classList.remove('app__section-task-list-item-active')
+})
 
-    tarefaSelecionada = tarefa
-    itemTarefaSelecionada = elemento
-    taskActiveDescription.textContent = tarefa.descricao
-    elemento.classList.add("app__section-task-list-item-active")
+if (tarefaSelecionada == tarefa) {
+    taskActiveDescription.textContent = null
+    itemTarefaSelecionada = null
+    tarefaSelecionada = null
+    return
+}
+
+tarefaSelecionada = tarefa
+itemTarefaSelecionada = elemento
+taskActiveDescription.textContent = tarefa.descricao
+elemento.classList.add('app__section-task-list-item-active')
 }
 
 let tarefas = localStorageTarefas ? JSON.parse(localStorageTarefas) : []
