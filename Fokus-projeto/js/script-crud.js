@@ -3,17 +3,23 @@ const localStorageTarefas = localStorage.getItem("tarefas")
 
 //Add Tarefas
 const formTask = document.querySelector('.app__form-add-task')
+
 const toggleFormTaskBtn = document.querySelector('.app__button--add-task')
+
 const formLabel = document.querySelector('.app__form-label')
+
 const textArea = document.querySelector(".app__form-textarea")
+
 const cancelFormTaskBtn = document.querySelector('.app__form-footer__button--cancel')
+
+const taskActiveDescription = document.querySelector(".app__section-active-task-description") 
+
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel')
 
 const limparForm = () =>{
     textArea.value = ''
     formTask.classList.add("hidden")
 }
-
 
 const taskIconSvg = `<svg class="app__section-task-icon-status" width="24" height="24" viewBox="0 0 24 24"
 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,6 +28,27 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
     d="M9 16.1719L19.5938 5.57812L21 6.98438L9 18.9844L3.42188 13.4062L4.82812 12L9 16.1719Z"
     fill="#01080E" />
 </`
+
+let tarefaSelecionada = null
+let itemTarefaSelecionada = null
+
+const selecionaTarefa = (tarefa, elemento) =>{
+    document.querySelectorAll(".app__section-task-list-item-active").forEach(function (button) {
+        button.classList.remove("app__section-task-list-item-active")
+    })
+
+    if (tarefasSelecionadas == tarefa){
+        taskActiveDescription.textContent = null
+        itemTarefaSelecionada = null
+        tarefaSelecionada = null
+        return
+    }
+
+    tarefaSelecionada = tarefa
+    itemTarefaSelecionada = elemento
+    taskActiveDescription.textContent = tarefa.descricao
+    elemento.classList.add("app__section-task-list-item-active")
+}
 
 let tarefas = localStorageTarefas ? JSON.parse(localStorageTarefas) : []
 
@@ -35,6 +62,10 @@ function createTask (tarefa) {
     const paragraph = document.createElement("p")
     paragraph.classList.add("app__section-task-list-item-description")
     paragraph.textContent = tarefa.descricao
+
+    li.onclick = () =>{
+        selecionaTarefa(tarefa, li)
+    }
 
     li.appendChild(svgIcon)
     li.appendChild(paragraph)

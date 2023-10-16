@@ -1,135 +1,149 @@
 Propriedade parentNode
 
-A propriedade parentNode é utilizada para acessar o nó pai de um elemento no DOM. Por meio dela, podemos navegar pela árvore do DOM em direção ao nó pai do elemento atual.
+    A propriedade parentNode é utilizada para acessar o nó pai de um elemento no DOM. Por meio dela, podemos navegar pela árvore do DOM em direção ao nó pai do elemento atual.
 
-Exemplo de uso:
+    Exemplo de uso:
 
-Suponha que temos o seguinte código HTML:
+    Suponha que temos o seguinte código HTML:
 
-    <div id="container">
-    <p>Este é um parágrafo</p>
-    </div>
+        <div id="container">
+        <p>Este é um parágrafo</p>
+        </div>
 
-Agora, podemos usar o ‘parentNode’ para acessar o elemento pai do parágrafo:
+    Agora, podemos usar o ‘parentNode’ para acessar o elemento pai do parágrafo:
 
-    const paragraph = document.querySelector('p');
-    const parentElement = paragraph.parentNode;
+        const paragraph = document.querySelector('p');
+        const parentElement = paragraph.parentNode;
 
-    console.log(parentElement.id); // Saída: "container"
+        console.log(parentElement.id); // Saída: "container"
 
-Propriedade childNodes
+    Propriedade childNodes
 
-A propriedade childNodes é utilizada para acessar todos os nós filhos de um elemento no DOM. Ela retorna uma lista de nós, incluindo nós de texto e elementos HTML.
+    A propriedade childNodes é utilizada para acessar todos os nós filhos de um elemento no DOM. Ela retorna uma lista de nós, incluindo nós de texto e elementos HTML.
 
-Exemplo de uso:
+    Exemplo de uso:
 
-Considerando o mesmo HTML do exemplo anterior, podemos usar o childNodes para obter todos os nós filhos do elemento com o ID "container":
+    Considerando o mesmo HTML do exemplo anterior, podemos usar o childNodes para obter todos os nós filhos do elemento com o ID "container":
 
-    const container = document.getElementById('container');
-    const childNodes = container.childNodes;
+        const container = document.getElementById('container');
+        const childNodes = container.childNodes;
 
-    console.log(childNodes.length); // Saída: 1 (o nó de texto "\n  " é considerado um nó filho)
-    console.log(childNodes[0].nodeName); // Saída: "#text"
-    console.log(childNodes[1].nodeName); // Saída: "P"
+        console.log(childNodes.length); // Saída: 1 (o nó de texto "\n  " é considerado um nó filho)
+        console.log(childNodes[0].nodeName); // Saída: "#text"
+        console.log(childNodes[1].nodeName); // Saída: "P"
 
-Propriedade nextElementSibling
+    Propriedade nextElementSibling
 
-A propriedade nextElementSibling permite acessar o próximo irmão (nó adjacente) de um elemento no DOM.
+    A propriedade nextElementSibling permite acessar o próximo irmão (nó adjacente) de um elemento no DOM.
 
-Exemplo de uso:
+    Exemplo de uso:
 
-Vamos considerar o seguinte HTML:
+    Vamos considerar o seguinte HTML:
 
-    <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-    <li>Item 3</li>
-    </ul>
+        <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        </ul>
 
-Agora, podemos usar o nextElementSibling para acessar o próximo irmão de um elemento <li>:
+    Agora, podemos usar o nextElementSibling para acessar o próximo irmão de um elemento <li>:
 
-    const item1 = document.querySelector('li:first-child');
-    const item2 = item1.nextElementSibling;
+        const item1 = document.querySelector('li:first-child');
+        const item2 = item1.nextElementSibling;
 
-    console.log(item2.textContent); // Saída: "Item 2"
+        console.log(item2.textContent); // Saída: "Item 2"
 
-Propriedade previousElementSibling
+    Propriedade previousElementSibling
 
-A propriedade previousElementSibling é semelhante ao nextElementSibling, mas permite acessar o irmão anterior (nó adjacente) de um elemento no DOM.
+    A propriedade previousElementSibling é semelhante ao nextElementSibling, mas permite acessar o irmão anterior (nó adjacente) de um elemento no DOM.
 
-Exemplo de uso:
+    Exemplo de uso:
 
-Continuando o exemplo anterior, vamos usar o previousElementSibling para acessar o irmão anterior do elemento <li> que selecionamos:
+    Continuando o exemplo anterior, vamos usar o previousElementSibling para acessar o irmão anterior do elemento <li> que selecionamos:
 
-    const item3 = document.querySelector('li:last-child');
-    const item2 = item3.previousElementSibling;
+        const item3 = document.querySelector('li:last-child');
+        const item2 = item3.previousElementSibling;
 
-    console.log(item2.textContent); // Saída: "Item 2"
+        console.log(item2.textContent); // Saída: "Item 2"
 
-Com essas propriedades, é possível navegar, acessar e modificar elementos HTML em uma página da web, tornando a manipulação do DOM uma tarefa poderosa para pessoas desenvolvedoras web.
+    Com essas propriedades, é possível navegar, acessar e modificar elementos HTML em uma página da web, tornando a manipulação do DOM uma tarefa poderosa para pessoas desenvolvedoras web.
 
-É importante continuar praticando e explorando o DOM para aprofundar seu conhecimento e habilidades em JavaScript.
+    É importante continuar praticando e explorando o DOM para aprofundar seu conhecimento e habilidades em JavaScript.
 
-Nesta aula, aprendemos como utilizar o objeto Date para formatar minutos e segundos. Entretanto, é possível utilizar suas propriedades e métodos para mais funcionalidades, como manipular e exibir datas e horas no seu código.
+    Nesta aula, aprendemos como utilizar o objeto Date para formatar minutos e segundos. Entretanto, é possível utilizar suas propriedades e métodos para mais funcionalidades, como manipular e exibir datas e horas no seu código.
 
-Vamos conferir mais formas de seu uso?
+    Vamos conferir mais formas de seu uso?
 
-Para criar uma instância do objeto ‘Date’, você pode usar uma das várias formas de construção:
-    
-    . Construtor sem argumentos:
-    
-        const dataAtual = new Date();
+    Para criar uma instância do objeto ‘Date’, você pode usar uma das várias formas de construção:
+        
+        . Construtor sem argumentos:
+        
+            const dataAtual = new Date();
 
-    . Construtor com argumentos (ano, mês, dia, hora, minuto, segundo, milissegundo):
-    
-        const dataEspecifica = new Date(2023, 7, 3, 12, 30, 0, 0);
+        . Construtor com argumentos (ano, mês, dia, hora, minuto, segundo, milissegundo):
+        
+            const dataEspecifica = new Date(2023, 7, 3, 12, 30, 0, 0);
 
-    . Construtor com uma string que representa a data (formato padrão é "yyyy-mm-dd"):
+        . Construtor com uma string que representa a data (formato padrão é "yyyy-mm-dd"):
 
-        const dateString = "2023-08-03";
-        const formatoDeData = new Date(dateString);
+            const dateString = "2023-08-03";
+            const formatoDeData = new Date(dateString);
 
-    . Uma vez criado um objeto Date, você pode acessar informações específicas da data e hora, como o ano, mês, dia, hora, minuto e segundo usando os métodos de acesso do objeto:
+        . Uma vez criado um objeto Date, você pode acessar informações específicas da data e hora, como o ano, mês, dia, hora, minuto e segundo usando os métodos de acesso do objeto:
 
-        const currentDate = new Date();
+            const currentDate = new Date();
 
-        const ano = currentDate.getFullYear();  // Acessa o ano
-        const mês = currentDate.getMonth(); // Acessa o mês - Janeiro é 0, Fevereiro é 1, ..., Dezembro é 11
-        const dia = currentDate.getDate(); // Acessa o dia
-        const horas = currentDate.getHours(); // Acessa as horas 
-        const minutos = currentDate.getMinutes(); // Acessa os minutos
-        const segundos = currentDate.getSeconds(); // Acessa os segundos
-        const milissegundos = currentDate.getMilliseconds();  // Acessa os milissegundos 
+            const ano = currentDate.getFullYear();  // Acessa o ano
+            const mês = currentDate.getMonth(); // Acessa o mês - Janeiro é 0, Fevereiro é 1, ..., Dezembro é 11
+            const dia = currentDate.getDate(); // Acessa o dia
+            const horas = currentDate.getHours(); // Acessa as horas 
+            const minutos = currentDate.getMinutes(); // Acessa os minutos
+            const segundos = currentDate.getSeconds(); // Acessa os segundos
+            const milissegundos = currentDate.getMilliseconds();  // Acessa os milissegundos 
 
-    . Você também pode modificar a data e hora usando os métodos de definição:
-    
-        const data = new Date();
+        . Você também pode modificar a data e hora usando os métodos de definição:
+        
+            const data = new Date();
 
-        data.setFullYear(2024);  // Define o ano
-        data.setMonth(10); // Define o mês
-        data.setDate(25); // Define o dia
-        data.setHours(10);  // Define as horas
-        data.setMinutes(30); // Define os minutos
-        data.setSeconds(0); // Define os segundos
+            data.setFullYear(2024);  // Define o ano
+            data.setMonth(10); // Define o mês
+            data.setDate(25); // Define o dia
+            data.setHours(10);  // Define as horas
+            data.setMinutes(30); // Define os minutos
+            data.setSeconds(0); // Define os segundos
 
-Além disso, o objeto ‘Date’ também fornece vários métodos para trabalhar com datas, como comparar datas, adicionar ou subtrair períodos de tempo, obter o dia da semana, entre outros.
+    Além disso, o objeto ‘Date’ também fornece vários métodos para trabalhar com datas, como comparar datas, adicionar ou subtrair períodos de tempo, obter o dia da semana, entre outros.
 
-Lembre-se de que, dependendo do fuso horário e configurações regionais do sistema em que o código está sendo executado, os resultados podem variar. Se você precisar de mais funcionalidades e suportes a diferentes formatos de zonas de tempo, uma boa alternativa é o uso de bibliotecas de manipulação de datas, como o Moment.js ou o date-fns.
+    Lembre-se de que, dependendo do fuso horário e configurações regionais do sistema em que o código está sendo executado, os resultados podem variar. Se você precisar de mais funcionalidades e suportes a diferentes formatos de zonas de tempo, uma boa alternativa é o uso de bibliotecas de manipulação de datas, como o Moment.js ou o date-fns.
 
 Diferentes Armazenadores de Dados
 
-Os Cookies, localStorage e sessionStorage são formas de armazenar dados no navegador, porém existem diferenças na usabilidade de cada um. Vamos conferir cada uma delas?
+    Os Cookies, localStorage e sessionStorage são formas de armazenar dados no navegador, porém existem diferenças na usabilidade de cada um. Vamos conferir cada uma delas?
 
-localStorage
+    localStorage
 
-    O localStorage guarda informações de forma persistente no navegador, sendo em média 5MB de armazenamento padrão, podendo variar dependendo do navegador utilizado. Este limite pode ser aumentado pelo usuário quando necessário, no entanto apenas alguns navegadores suportam isso. Os dados salvos são apenas do tipo string texto.
+        O localStorage guarda informações de forma persistente no navegador, sendo em média 5MB de armazenamento padrão, podendo variar dependendo do navegador utilizado. Este limite pode ser aumentado pelo usuário quando necessário, no entanto apenas alguns navegadores suportam isso. Os dados salvos são apenas do tipo string texto.
 
-Cookies
+    Cookies
 
-    Os Cookies guardam informações de forma persistente no navegador, sendo até 4KB de armazenamento por Cookie, bem menos que localStorage. Cada cookie funciona como um arquivo criado para armazenar informações de acesso do usuário. Isso pode incluir detalhes como a localização do acesso ao site, o endereço de e-mail utilizado para fazer login no navegador e quais produtos de um site foram clicados.
+        Os Cookies guardam informações de forma persistente no navegador, sendo até 4KB de armazenamento por Cookie, bem menos que localStorage. Cada cookie funciona como um arquivo criado para armazenar informações de acesso do usuário. Isso pode incluir detalhes como a localização do acesso ao site, o endereço de e-mail utilizado para fazer login no navegador e quais produtos de um site foram clicados.
 
-    Para acessar esses cookies, muitas empresas exibem pop-ups que solicitam a autorização do usuário para o uso dessas informações, uma vez que esses dados são considerados sensíveis.
+        Para acessar esses cookies, muitas empresas exibem pop-ups que solicitam a autorização do usuário para o uso dessas informações, uma vez que esses dados são considerados sensíveis.
 
-sessionStorage
+    sessionStorage
 
-    O sessionStorage é bem similar ao localStorage. Sua diferença é que os dados não são salvos de forma persistente, ou seja, ao fechar o navegador eles são perdidos. Este tipo de armazenamento é utilizado quando queremos que a pessoa usuária utilize os dados apenas enquanto estiver com o site aberto.
+        O sessionStorage é bem similar ao localStorage. Sua diferença é que os dados não são salvos de forma persistente, ou seja, ao fechar o navegador eles são perdidos. Este tipo de armazenamento é utilizado quando queremos que a pessoa usuária utilize os dados apenas enquanto estiver com o site aberto.
+
+Eventos de Formulário
+
+    Eventos de formulário no contexto do desenvolvimento web, especificamente em JavaScript, são notificações que ocorrem quando um usuário interage com elementos de um formulário em uma página. Esses eventos podem ser comparados a sinais de alerta que o navegador emite quando há atividades relevantes nos campos do formulário.
+
+    Para ilustrar, imagine um formulário de inscrição em um site. Quando alguém clica no botão de envio, o navegador reconhece isso como um evento, semelhante a um alerta sonoro em uma festa. Esses eventos podem variar, desde um campo de texto sendo preenchido até um botão sendo clicado, cada um gerando um sinal para o navegador, que, por sua vez, pode acionar uma ação específica, como validar os dados inseridos ou enviar o formulário.
+
+    Alguns dos principais eventos incluem:
+
+    submit: Este evento ocorre quando o formulário é enviado, geralmente acionado ao pressionar um botão de envio.
+    input: É acionado quando um campo de entrada (input) ou textarea é modificado. Isso inclui digitar, colar ou deletar texto.
+    change: Esse evento é acionado quando o valor de um campo de entrada é alterado e o campo perde o foco. Funciona bem com caixas de seleção, botões de rádio e elementos select.
+    click: é acionado quando o usuário clica em um elemento da página, como um botão, link, imagem, ou qualquer outro elemento interativo.
+    select: Este evento é acionado quando o usuário seleciona um texto dentro de um campo de input ou textarea
