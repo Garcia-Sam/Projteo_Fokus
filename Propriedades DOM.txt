@@ -115,3 +115,21 @@ Para criar uma instância do objeto ‘Date’, você pode usar uma das várias 
 Além disso, o objeto ‘Date’ também fornece vários métodos para trabalhar com datas, como comparar datas, adicionar ou subtrair períodos de tempo, obter o dia da semana, entre outros.
 
 Lembre-se de que, dependendo do fuso horário e configurações regionais do sistema em que o código está sendo executado, os resultados podem variar. Se você precisar de mais funcionalidades e suportes a diferentes formatos de zonas de tempo, uma boa alternativa é o uso de bibliotecas de manipulação de datas, como o Moment.js ou o date-fns.
+
+Diferentes Armazenadores de Dados
+
+Os Cookies, localStorage e sessionStorage são formas de armazenar dados no navegador, porém existem diferenças na usabilidade de cada um. Vamos conferir cada uma delas?
+
+localStorage
+
+    O localStorage guarda informações de forma persistente no navegador, sendo em média 5MB de armazenamento padrão, podendo variar dependendo do navegador utilizado. Este limite pode ser aumentado pelo usuário quando necessário, no entanto apenas alguns navegadores suportam isso. Os dados salvos são apenas do tipo string texto.
+
+Cookies
+
+    Os Cookies guardam informações de forma persistente no navegador, sendo até 4KB de armazenamento por Cookie, bem menos que localStorage. Cada cookie funciona como um arquivo criado para armazenar informações de acesso do usuário. Isso pode incluir detalhes como a localização do acesso ao site, o endereço de e-mail utilizado para fazer login no navegador e quais produtos de um site foram clicados.
+
+    Para acessar esses cookies, muitas empresas exibem pop-ups que solicitam a autorização do usuário para o uso dessas informações, uma vez que esses dados são considerados sensíveis.
+
+sessionStorage
+
+    O sessionStorage é bem similar ao localStorage. Sua diferença é que os dados não são salvos de forma persistente, ou seja, ao fechar o navegador eles são perdidos. Este tipo de armazenamento é utilizado quando queremos que a pessoa usuária utilize os dados apenas enquanto estiver com o site aberto.
