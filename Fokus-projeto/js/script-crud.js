@@ -29,6 +29,8 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
     fill="#01080E" />
 </`
 
+
+
 let tarefaSelecionada = null
 let itemTarefaSelecionada = null
 
@@ -72,12 +74,12 @@ function createTask (tarefa) {
 
     svgIcon.addEventListener('click', (event) =>{
         event.stopPropagation()
-        button.setAttribute('disable', true)
+        button.setAttribute('disabled', true)
         li.classList.add('app__section-task-list-item-complete')
     })
 
     if(tarefa.concluida){
-        button.setAttribute('disable', true)
+        button.setAttribute('disabled', true)
         li.classList.add('app__section-task-list-item-complete')
     }
 
