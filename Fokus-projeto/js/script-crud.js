@@ -1,4 +1,6 @@
 const taskListContainer = document.querySelector(".app__section-task-list")
+const localStorageTarefas = localStorage.getItem("tarefas")
+
 //Add Tarefas
 const formTask = document.querySelector('.app__form-add-task')
 const toggleFormTaskBtn = document.querySelector('.app__button--add-task')
@@ -21,11 +23,7 @@ fill="none" xmlns="http://www.w3.org/2000/svg">
     fill="#01080E" />
 </`
 
-let tarefas = [
-
-]
-
-
+let tarefas = localStorageTarefas ? JSON.parse(localStorageTarefas) : []
 
 function createTask (tarefa) {
     const li = document.createElement("li")
@@ -60,6 +58,10 @@ cancelFormTaskBtn.addEventListener('click', () => {
 
 btnCancelar.addEventListener("click", limparForm)
 
+const updateLocalStorage = () =>{
+    localStorage.setItem("tarefas", JSON.stringify(tarefas))
+}
+
 formTask.addEventListener("submit", (evento) =>{
     evento.preventDefault()
     const task = {
@@ -70,8 +72,7 @@ formTask.addEventListener("submit", (evento) =>{
     const taskItem = createTask(task)
     taskListContainer.appendChild(taskItem)
     
+    updateLocalStorage()
     limparForm()
 })
 
-localStorage.setItem("quantidade", 10)
-console.log(localStorage.getItem("quantidade"))
