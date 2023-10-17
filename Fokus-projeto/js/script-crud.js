@@ -17,6 +17,8 @@ const taskActiveDescription = document.querySelector(".app__section-active-task-
 const btnCancelar = document.querySelector('.app__form-footer__button--cancel')
 
 const limparForm = () =>{
+    tarefaEmEdicao = null
+    paragraphEmedicao = null
     textArea.value = ''
     formTask.classList.add("hidden")
 }
@@ -37,8 +39,17 @@ let itemTarefaSelecionada = null
 let tarefaEmEdicao = null
 let paragraphEmedicao = null
 
-const selecionaTarefaParaEditar = () =>{
+const selecionaTarefaParaEditar = (tarefa, elemento) =>{
+    if(tarefaEmEdicao == tarefa){
+        limparForm()
+        return
+    }
 
+    formLabel.textContent = 'Editando tarefa...'
+    tarefaEmEdicao = tarefa
+    paragraphEmedicao = elemento
+    textArea.value = tarefa.descricao
+    formTask.classList.remove('hidden')
 }
 
 
@@ -77,9 +88,10 @@ function createTask (tarefa) {
 
     const button = document.createElement("button")
     
-    button.classList.add("app__button-edit")
+    button.classList.add("app_button-edit")
     const editIcon = document.createElement('img')
     editIcon.setAttribute('src', './imagens/edit.png')
+    
     button.appendChild(editIcon)
 
     li.onclick = () =>{
