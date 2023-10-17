@@ -15,7 +15,7 @@ const play = new Audio ("./sons/play.wav")
 const pause = new Audio ("./sons/pause.mp3")
 const beep = new Audio ("./sons/beep.mp3")
 
-let tempoDecorridoEmSegundos = 1500
+let tempoDecorridoEmSegundos = 3
 let intervaloId = null
 
 musica.loop = true
@@ -28,7 +28,7 @@ musicaFocoInput.addEventListener("change", () => {
 })
 
 focoBt.addEventListener("click", () => {
-    tempoDecorridoEmSegundos = 1500
+    tempoDecorridoEmSegundos = 3
     alterarContexto('foco')
     focoBt.classList.add("active")
 })
@@ -78,7 +78,6 @@ function alterarContexto(contexto) {
 const contagemRegressiva = () =>{
     if (tempoDecorridoEmSegundos <= 0) {
         beep.play()
-        alert("Tempo Finalizado!")
         zerar()
         return
     }
