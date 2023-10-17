@@ -94,6 +94,13 @@ function createTask (tarefa) {
     
     button.appendChild(editIcon)
 
+    button.addEventListener('click', (event) =>{
+        event.stopPropagation()
+        selecionaTarefaParaEditar(tarefa, paragraph)
+
+    })
+
+
     li.onclick = () =>{
         selecionaTarefa(tarefa, li)
     }
@@ -137,15 +144,19 @@ const updateLocalStorage = () =>{
 }
 
 formTask.addEventListener("submit", (evento) =>{
-    evento.preventDefault()
-    const task = {
-        descricao: textArea.value,
-        concluida: false
+    if(tarefaEmEdicao){
+        tarefaEmEdicao.descricao = textArea.value
+        paragraphEmedicao.textContent = textArea.value
+    } else {
+        evento.preventDefault()
+        const task = {
+            descricao: textArea.value,
+            concluida: false
+        }
+        tarefas.push(task)
+        const taskItem = createTask(task)
+        taskListContainer.appendChild(taskItem)    
     }
-    tarefas.push(task)
-    const taskItem = createTask(task)
-    taskListContainer.appendChild(taskItem)
-    
     updateLocalStorage()
     limparForm()
 })
