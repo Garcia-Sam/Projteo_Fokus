@@ -147,3 +147,27 @@ Eventos de Formulário
     change: Esse evento é acionado quando o valor de um campo de entrada é alterado e o campo perde o foco. Funciona bem com caixas de seleção, botões de rádio e elementos select.
     click: é acionado quando o usuário clica em um elemento da página, como um botão, link, imagem, ou qualquer outro elemento interativo.
     select: Este evento é acionado quando o usuário seleciona um texto dentro de um campo de input ou textarea
+
+Desvendando o localStorage
+    Agora que você já sabe que o localStorage é uma ferramenta importante para armazenar alguns dados localmente. Porém, como aprendemos até aqui, precisamos tomar alguns cuidados ao manipular os dados que vão para o localStorage ou que estão saindo dele. Como isso acontece? Para ilustrar esse conceito, vou utilizar um exemplo prático e explicar as etapas:
+            // Dados de exemplo
+                let pessoa = {nome: 'João', idade: 23};
+
+            // Armazena os dados no localStorage
+                localStorage.setItem('pessoa', JSON.stringify(pessoa));
+
+            // Recupera os dados do localStorage
+                let pessoaString = localStorage.getItem('pessoa');
+                let pessoaObjeto = JSON.parse(pessoaString);
+
+    Ao considerar a importação de dados para o localStorage, o método localStorage.setItem() é empregado em conjunto com JSON.stringify(), que converte um objeto em uma string. Isso permite armazenar informações complexas em uma forma que o localStorage possa compreender:
+
+        let pessoa = {nome: 'João', idade: 23};
+        localStorage.setItem('pessoa', JSON.stringify(pessoa)); // Transforma o objeto em string
+
+    Por outro lado, para recuperar dados do localStorage e incorporá-los de volta em nossa página, usamos o método .getItem(). O processo inverso ao que ocorreu anteriormente é executado: a string armazenada é convertida de volta para um objeto por meio do JSON.parse():  
+       
+        let pessoaString = localStorage.getItem('pessoa'); // Obtém a string do localStorage
+        let pessoa = JSON.parse(pessoaString); // Transforma a string em objeto novamente
+
+    Nesse exemplo, o objeto pessoa é convertido em uma string usando JSON.stringify() e armazenado no localStorage por meio do método localStorage.setItem(). Posteriormente, a string é recuperada do localStorage usando localStorage.getItem() e então é convertida de volta para um objeto usando JSON.parse().
